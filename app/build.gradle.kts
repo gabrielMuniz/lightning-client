@@ -48,6 +48,10 @@ dependencies {
     implementation(libs.androidx.compose.navigation)
     implementation(libs.accompanist.swiperefresh)
 
+    //Internal modules
+    implementation(project(":domain"))
+    implementation(project(":data"))
+
     //Koin dependencies
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)

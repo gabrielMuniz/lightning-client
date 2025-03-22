@@ -42,7 +42,7 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.gson)
 
-    project(":domain")
+    implementation(project(":domain"))
 
     testImplementation(libs.junit)
 }
