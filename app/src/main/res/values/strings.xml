@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">LightningClient</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="load_more_button">Carregar mais</string>
+    <string name="public_key_label">Chave Pública</string>
+    <string name="alias_label">Alias</string>
+    <string name="channels_label">Canais</string>
+    <string name="capacity_label">Capacidade</string>
+    <string name="first_seen_label">Primeiro Visto</string>
+    <string name="updated_at_label">Última Atualização</string>
+    <string name="city_label">Cidade</string>
+    <string name="country_label">País</string>
+    <string name="try_again">Tente novamente</string>
+    <string name="generic_error">Ocorreu um erro nos nossos serviços, mas estamos trabalhando para resolve-lo.</string>
+    <string name="unavailable_city">Cidade não disponível</string>
+    <string name="unavailable_country">País não disponível</string>
 </resources>

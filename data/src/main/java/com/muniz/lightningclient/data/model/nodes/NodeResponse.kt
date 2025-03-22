@@ -7,7 +7,7 @@ data class NodeResponse(
     val capacity: Long,
     val firstSeen: Long,
     val updatedAt: Long,
-    val city: String?,
-    val country: CountryResponse
+    val city: CityResponse?,
+    val country: CountryResponse?
 )
 
