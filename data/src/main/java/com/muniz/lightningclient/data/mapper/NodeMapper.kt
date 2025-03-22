@@ -2,8 +2,8 @@ package com.muniz.lightningclient.data.mapper
 
 import com.muniz.lightningclient.data.model.nodes.CountryResponse
 import com.muniz.lightningclient.data.model.nodes.NodeResponse
-import com.muniz.lightningclient.domain.nodes.Country
-import com.muniz.lightningclient.domain.nodes.Node
+import com.muniz.lightningclient.domain.model.Country
+import com.muniz.lightningclient.domain.model.Node
 
 fun NodeResponse.toNodeEntity() = Node(
     publicKey = publicKey,

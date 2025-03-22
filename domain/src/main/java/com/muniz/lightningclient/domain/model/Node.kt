@@ -1,4 +1,4 @@
-package com.muniz.lightningclient.domain.nodes
+package com.muniz.lightningclient.domain.model
 
 data class Node(
     val publicKey: String,
