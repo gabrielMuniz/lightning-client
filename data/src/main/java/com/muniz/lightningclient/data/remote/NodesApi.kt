@@ -1,5 +1,6 @@
 package com.muniz.lightningclient.data.remote
 
+import com.muniz.lightningclient.data.model.nodes.NodeResponse
 import retrofit2.Call
 import retrofit2.http.GET
 

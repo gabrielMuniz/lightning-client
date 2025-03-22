@@ -23,7 +23,7 @@ android {
             )
         }
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://mempool.space/api/v1//\"")
+            buildConfigField("String", "BASE_URL", "\"https://mempool.space/api/v1/\"")
         }
     }
     compileOptions {
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 

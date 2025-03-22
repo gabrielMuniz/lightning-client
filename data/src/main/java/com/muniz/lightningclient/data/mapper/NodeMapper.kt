@@ -25,5 +25,4 @@ fun CountryResponse.toCountryEntity() = Country(
     ptBR = ptBR.orEmpty(),
     ru = ru.orEmpty(),
     zhCN = zhCN.orEmpty()
-
 )
