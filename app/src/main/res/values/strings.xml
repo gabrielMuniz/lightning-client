@@ -14,5 +14,5 @@
     <string name="generic_error">Ocorreu um erro nos nossos serviços, mas estamos trabalhando para resolve-lo.</string>
     <string name="unavailable_city">Cidade não disponível</string>
     <string name="unavailable_country">País não disponível</string>
-    <string name="public_key_copied">Chave copiada: </string>
+    <string name="public_key_copied">Chave copiada </string>
 </resources>
