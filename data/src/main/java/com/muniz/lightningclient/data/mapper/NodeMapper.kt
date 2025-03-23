@@ -3,6 +3,7 @@ package com.muniz.lightningclient.data.mapper
 import com.muniz.lightningclient.data.model.nodes.CityResponse
 import com.muniz.lightningclient.data.model.nodes.CountryResponse
 import com.muniz.lightningclient.data.model.nodes.NodeResponse
+import com.muniz.lightningclient.domain.extensions.convertSatToBTC
 import com.muniz.lightningclient.domain.model.City
 import com.muniz.lightningclient.domain.model.Country
 import com.muniz.lightningclient.domain.model.Node
@@ -11,7 +12,7 @@ fun NodeResponse.toNodeEntity() = Node(
     publicKey = publicKey,
     alias = alias,
     channels = channels,
-    capacity = capacity,
+    capacity = capacity.convertSatToBTC().toDouble(),
     firstSeen = firstSeen,
     updatedAt = updatedAt,
     city = city?.toCityEntity(),

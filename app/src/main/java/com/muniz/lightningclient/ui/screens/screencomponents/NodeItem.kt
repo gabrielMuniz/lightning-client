@@ -18,6 +18,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.muniz.lightningclient.R
 import com.muniz.lightningclient.domain.model.Node
+import com.muniz.lightningclient.extensions.formatBTC
 import com.muniz.lightningclient.extensions.formatDate
 import com.muniz.lightningclient.ui.components.TextInfoComponent
 import kotlinx.coroutines.launch
@@ -53,7 +54,7 @@ fun NodeItem(node: Node, snackBarHostState: SnackbarHostState) {
                 TextInfoComponent(label = R.string.public_key_label, value = publicKey)
                 TextInfoComponent(label = R.string.alias_label, value = alias)
                 TextInfoComponent(label = R.string.channels_label, value = channels.toString())
-                TextInfoComponent(label = R.string.capacity_label, value = capacity.toString())
+                TextInfoComponent(label = R.string.capacity_label, value = capacity.formatBTC())
                 TextInfoComponent(label = R.string.first_seen_label, value = firstSeen.formatDate())
                 TextInfoComponent(label = R.string.updated_at_label, value = updatedAt.formatDate())
                 TextInfoComponent(
