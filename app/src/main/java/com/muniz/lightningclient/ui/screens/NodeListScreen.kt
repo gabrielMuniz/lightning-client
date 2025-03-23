@@ -2,6 +2,8 @@ package com.muniz.lightningclient.ui.screens
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -28,6 +30,7 @@ fun NodeListScreen() {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val isLoaded = rememberSaveable { mutableStateOf(false) }
     val isRefreshing = rememberSaveable { mutableStateOf(false) }
+    val snackBarHostState = rememberSaveable { SnackbarHostState() }
 
     fun refreshData() {
         isRefreshing.value = true
@@ -42,7 +45,9 @@ fun NodeListScreen() {
         }
     }
 
-    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(hostState = snackBarHostState) }) { innerPadding ->
         SwipeRefresh(
             state = rememberSwipeRefreshState(isRefreshing.value),
             onRefresh = { refreshData() }
@@ -60,7 +65,8 @@ fun NodeListScreen() {
                     NodeList(
                         state = state,
                         loadMoreNodes = { viewModel.loadMoreNodes() },
-                        paddingValues = innerPadding
+                        paddingValues = innerPadding,
+                        snackBarHostState = snackBarHostState
                     )
                 }
             }

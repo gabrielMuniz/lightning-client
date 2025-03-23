@@ -1,28 +1,49 @@
 package com.muniz.lightningclient.ui.screens.screencomponents
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.muniz.lightningclient.R
 import com.muniz.lightningclient.domain.model.Node
 import com.muniz.lightningclient.extensions.formatDate
 import com.muniz.lightningclient.ui.components.TextInfoComponent
+import kotlinx.coroutines.launch
 
 @Composable
-fun NodeItem(node: Node) {
+fun NodeItem(node: Node, snackBarHostState: SnackbarHostState) {
+    val clipboardManager = LocalClipboardManager.current
+    val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .clickable {
+                clipboardManager.setText(AnnotatedString(node.publicKey))
+
+                coroutineScope.launch {
+                    snackBarHostState.showSnackbar(
+                        message = "${
+                            context.getString(R.string.public_key_copied)
+                        }: ${node.publicKey}",
+                        duration = SnackbarDuration.Short
+                    )
+                }
+            },
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
         with(node) {

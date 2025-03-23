@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,7 +25,8 @@ import com.muniz.lightningclient.viewmodels.NodesListState
 fun NodeList(
     state: NodesListState,
     paddingValues: PaddingValues,
-    loadMoreNodes: () -> Unit
+    loadMoreNodes: () -> Unit,
+    snackBarHostState: SnackbarHostState
 ) {
     Column(
         modifier = Modifier
@@ -38,7 +40,7 @@ fun NodeList(
                 .padding(horizontal = 8.dp)
         ) {
             items(state.visibleNodes) { node ->
-                NodeItem(node)
+                NodeItem(node = node, snackBarHostState = snackBarHostState)
             }
 
             item {
