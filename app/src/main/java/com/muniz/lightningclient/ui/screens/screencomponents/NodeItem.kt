@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.muniz.lightningclient.R
 import com.muniz.lightningclient.domain.model.Node
 import com.muniz.lightningclient.extensions.formatDate
+import com.muniz.lightningclient.ui.components.TextInfoComponent
 
 @Composable
 fun NodeItem(node: Node) {
@@ -28,56 +29,24 @@ fun NodeItem(node: Node) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
-                Text(
-                    text = "${stringResource(id = R.string.public_key_label)}: $publicKey",
-                    style = MaterialTheme.typography.bodyMedium,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-                Text(
-                    text = "${stringResource(id = R.string.alias_label)}: $alias",
-                    style = MaterialTheme.typography.bodyMedium,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-                Text(
-                    text = "${stringResource(id = R.string.channels_label)}: $channels",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = "${stringResource(id = R.string.capacity_label)}: $capacity sats",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = "${stringResource(id = R.string.first_seen_label)}: ${
-                        firstSeen.formatDate()
-                    }",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = "${stringResource(id = R.string.updated_at_label)}: ${
-                        updatedAt.formatDate()
-                    }",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = "${stringResource(id = R.string.city_label)}: ${
-                        city ?: stringResource(R.string.unavailable_city)
-                    }",
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = "${
-                        stringResource(
-                            id = R.string.country_label
-                        )
-                    }: ${
-                        country?.let { if (it.ptBR.isNotEmpty()) it.ptBR else it.en } ?: stringResource(
+                TextInfoComponent(label = R.string.public_key_label, value = publicKey)
+                TextInfoComponent(label = R.string.alias_label, value = alias)
+                TextInfoComponent(label = R.string.channels_label, value = channels.toString())
+                TextInfoComponent(label = R.string.capacity_label, value = capacity.toString())
+                TextInfoComponent(label = R.string.first_seen_label, value = firstSeen.formatDate())
+                TextInfoComponent(label = R.string.updated_at_label, value = updatedAt.formatDate())
+                TextInfoComponent(
+                    label = R.string.city_label,
+                    value = city?.let { if (it.ptBR.isNotEmpty()) it.ptBR else it.en }
+                        ?: stringResource(
+                            R.string.unavailable_city
+                        ))
+                TextInfoComponent(
+                    label = R.string.country_label,
+                    value = city?.let { if (it.ptBR.isNotEmpty()) it.ptBR else it.en }
+                        ?: stringResource(
                             R.string.unavailable_country
-                        )
-                    }",
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                        ))
             }
         }
     }
