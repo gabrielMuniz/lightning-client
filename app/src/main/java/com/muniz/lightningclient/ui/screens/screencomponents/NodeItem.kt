@@ -64,7 +64,7 @@ fun NodeItem(node: Node, snackBarHostState: SnackbarHostState) {
                         ))
                 TextInfoComponent(
                     label = R.string.country_label,
-                    value = city?.let { if (it.ptBR.isNotEmpty()) it.ptBR else it.en }
+                    value = country?.let { if (it.ptBR.isNotEmpty()) it.ptBR else it.en }
                         ?: stringResource(
                             R.string.unavailable_country
                         ))
