@@ -12,7 +12,7 @@ fun NodeResponse.toNodeEntity() = Node(
     publicKey = publicKey,
     alias = alias,
     channels = channels,
-    capacity = capacity.convertSatToBTC().toDouble(),
+    capacity = capacity.convertSatToBTC(default = 0.0).toDouble(),
     firstSeen = firstSeen,
     updatedAt = updatedAt,
     city = city?.toCityEntity(),

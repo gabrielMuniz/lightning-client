@@ -45,6 +45,11 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.gson)
 
+    testImplementation(libs.junit)
+    testImplementation(libs.koin.test.junit4)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinCoroutinesTest)
+
     implementation(project(":domain"))
 
     testImplementation(libs.junit)
